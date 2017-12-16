@@ -26,9 +26,25 @@
       <scope>test</scope>
     </dependency>
      <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+     <dependency>
            <groupId>org.springframework.boot</groupId>
            <artifactId>spring-boot-starter-web</artifactId>
      </dependency>
+     <dependency>
+        <groupId>com.xiaoleilu</groupId>
+        <artifactId>hutool-all</artifactId>
+        <version>3.0.1</version>
+     </dependency>
+     
+      <dependency>  
+            <groupId>org.springframework.boot</groupId>  
+            <artifactId>spring-boot-devtools</artifactId>  
+            <optional>true</optional>  
+            <scope>true</scope>  
+        </dependency>  
   </dependencies>
   <build>
   	 <plugins>

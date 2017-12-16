@@ -1,6 +1,8 @@
 ﻿package com.cn.controller;
 
+import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,9 @@ public class UserController {
 	  
 		@Value("${user.hobby}")
 	  private String hoby;
+		
+		@Value("${user.age}")
+		private int age;
 	
 		@RequestMapping("/home")
 		public String home(){
@@ -23,7 +28,7 @@ public class UserController {
 		
 		@RequestMapping("/user")
 		public String user(){
-			 return name+"的爱好是:"+hoby;
+			 return name+"的爱好是:"+hoby+"，年龄"+age;
 		}
 		
 }
