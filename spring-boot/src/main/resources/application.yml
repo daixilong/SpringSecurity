@@ -1,0 +1,10 @@
+user:
+ age: 123
+spring.thymeleaf:
+ mode= HTML5
+ encoding= UTF-8
+ content-type= text/html
+ cache= false
+spring.resources:
+ static-locations= classpath:/layui/ 
+ 
