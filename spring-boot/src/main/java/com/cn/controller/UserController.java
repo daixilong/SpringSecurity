@@ -1,14 +1,17 @@
 ﻿package com.cn.controller;
 
+import com.cn.dao.UserRepository;
 import com.cn.exception.MyException;
-import com.cn.service.UserService;
+import com.cn.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+
 @PropertySource({"classpath:user.properties"})
 public class UserController {
 		
@@ -21,8 +24,8 @@ public class UserController {
 		@Value("${user.age}")
 		private int age;
 
-		@Autowired
-		private UserService userService;
+	   @Autowired
+       private UserRepository userRepository;
 	
 		@RequestMapping("/home")
 		public String home(){
@@ -39,22 +42,13 @@ public class UserController {
 		public String json() throws MyException {
 			throw new MyException("发生错误2");
 		}
+		@GetMapping("/add")
+	   public String add(){
+			User user=new User();
+			user.setName("张三");
+			user.setAge(10);
+			userRepository.save(user);
+			return "添加成功";
+		}
 
-	/*	@RequestMapping("/add")
-	    public String add() throws MyException{
-			throw new  MyException("出现错误");
-				User user1=new User();
-			    user1.setId(1l);
-				user1.setName("张三");
-			   user1.setAge(24);
-				userService.insert(user1);
-		}*/
-
-	public UserService getUserService() {
-		return userService;
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 }

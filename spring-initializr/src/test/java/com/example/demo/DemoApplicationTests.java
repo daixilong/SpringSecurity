@@ -11,6 +11,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("开始执行该方法");
 	}
 
 }
